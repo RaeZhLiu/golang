@@ -11,7 +11,7 @@ import (
 )
 
 var lib *library.MusicManager
-var id int = 1
+var id int = 0
 
 func handleLibCommand(tokens []string) {
 	switch tokens[1] {
@@ -22,8 +22,8 @@ func handleLibCommand(tokens []string) {
 		}
 	case "add":
 		if len(tokens) == 6 {
-			id++
 			lib.Add(&library.MusicEntry{Id: strconv.Itoa(id), Name: tokens[2], Artist: tokens[3], Source: tokens[4], Type: tokens[5]})
+			id++
 		} else {
 			fmt.Println("USAGE: lib add <name> <artist> <source> <type>")
 		}
